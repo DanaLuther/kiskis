@@ -1,7 +1,7 @@
-#Keep it Secret, Keep it Safe
+# Keep it Secret, Keep it Safe
 ## Docker Secrets and DI
 
-###Install composer packages:
+### Install composer packages:
 From the src/ directory
 ```shell
 docker run --rm -v $PWD:/app composer update
