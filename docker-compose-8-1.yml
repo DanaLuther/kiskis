@@ -1,0 +1,27 @@
+version: "3.7"
+services:
+  php:
+    image: php:8.1-rc-apache
+    ports:
+      - 8081:80
+    environment:
+      - MY_SECRET_KEY=SomeKeyValue
+    volumes:
+      - ./src:/var/www/html
+    secrets:
+      - hiddenkey
+      - hiddenkey2
+    command: ['bash','-c','docker-php-ext-install -j$$(nproc) mysqli pdo_mysql && apache2-foreground']
+  db:
+    image: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/db_pwd
+    secrets:
+      - db_pwd
+secrets:
+  db_pwd:
+    file: ./secrets/root_db_password.txt
+  hiddenkey:
+    file: ./secrets/secret-key-val.txt
+  hiddenkey2:
+    file: ./secrets/secret-key-val2.txt

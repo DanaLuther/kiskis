@@ -1,0 +1,12 @@
+{
+  "require": {
+    "yiisoft/di": "^3.0.x-dev",
+    "yiisoft/injector": "^1.0",
+    "yiisoft/definitions": "^3.0.x-dev"
+  },
+  "autoload": {
+    "psr-4": {
+      "Example\\": "Example"
+    }
+  }
+}
